@@ -10,7 +10,7 @@ export const postUrl = (newUrl) => {
       long_url: newUrl.long_url,
       title: newUrl.title
     }),
-    headers: {'Content-type': 'application/json'}
+    headers: {'Content-Type': 'application/json'}
   })
     .then(response => checkForErrors(response))
 }

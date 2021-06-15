@@ -19,7 +19,7 @@ export class App extends Component {
 
   addUrl = (newUrl) => {
     postUrl(newUrl)
-      .then(data => this.refreshUrls())
+      .then(data => this.setState({urls: [...this.state.urls, data]}))
       .catch(error => this.setState({error: 'Oh no, something went wrong. Please try again.'}))
   }
   

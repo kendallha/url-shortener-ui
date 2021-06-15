@@ -1,6 +1,7 @@
 describe('formSubmission', () => {
+  
 
-  it('Should update the value of the form inputs when a user types in them', () => {
+  it('Should display a new shortened URL after the user submits the form', () => {
     cy.intercept('http://localhost:3001/api/v1/urls',
     {
       "urls": [
@@ -17,13 +18,9 @@ describe('formSubmission', () => {
     cy.get('.title-input')
       .type('Yummy')
       .should('have.value', 'Yummy')
-  cy.get('.url-input')
+    cy.get('.url-input')
       .type('https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/')
       .should('have.value', 'https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/')
-})
-  })
-
-  it('Should display a new shortened URL after the user submits the form', () => {
     cy.intercept('POST', 'http://localhost:3001/sightings', {
         statusCode: 201,
         body: {
@@ -33,12 +30,8 @@ describe('formSubmission', () => {
           description: 'Yummy'
     },
     })
-    cy.get('.title-input')
-      .type('Yummy')
-    cy.get('.url-input')
-      .type('https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/')
     cy.get('button').click()
     cy.get('.short-url').contains('http://localhost:3001/useshorturl/12')
-})
+  })
 
 })
