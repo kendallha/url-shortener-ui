@@ -21,5 +21,7 @@ describe('mainAppView', () => {
 
   it('Should display all existing shortened URLs', () => {
     cy.get('.short-url').should('have.text', 'http://localhost:3001/useshorturl/11')
+      .get('.url-title').should('have.text', 'Cool cat')
+      .get('.long-url').should('have.text', 'https://i.ytimg.com/vi/vYyUb_MI7to/maxresdefault.jpg')
   })
 })
