@@ -35,7 +35,7 @@ export class App extends Component {
         {!this.state.error &&
         <UrlContainer urls={this.state.urls}/> 
         }
-        {this.state.error && <h2>{this.state.error}</h2>}
+        {this.state.error && <h2 className='error'>{this.state.error}</h2>}
       </main>
     );
   }
