@@ -34,6 +34,8 @@ describe('formSubmission', () => {
   })
     cy.get('.submit').click()
     cy.get('.short-url').contains('http://localhost:3001/useshorturl/12')
+      .get('.url-title').contains('Yummy')
+      .get('.long-url').contains('https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/')
   })
 
 })
