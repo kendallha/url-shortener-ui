@@ -12,5 +12,13 @@ export const postUrl = ({ urltoShorten, title }) => {
     }),
     headers: {'Content-type': 'application/json'}
   })
-    .then(response => response.json())
+    .then(response => checkForErrors(response))
+}
+
+const checkForErrors = (response) => {
+  if (!response.ok) {
+    throw new Error(response.message)
+  } else {
+    return response.json()
+  }
 }
