@@ -12,5 +12,10 @@ describe('mainAppView', () => {
         ]
       }
     )
+      .visit('http://localhost:3000')
+  })
+
+  it('Should display the title of the app', () => {
+    cy.get('.app-name').should('have.text', 'URL Shortener')
   })
 })
