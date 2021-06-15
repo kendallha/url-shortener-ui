@@ -30,7 +30,7 @@ class UrlForm extends Component {
 
   render() {
     return (
-      <form>
+      <form className='form'>
         <input
           type='text'
           placeholder='Title...'
