@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postUrl } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -18,6 +18,12 @@ export class App extends Component {
       .then(data => this.setState({urls: data.urls}))
       .catch(error => this.setState({error: 'Oh no, something went wrong. Please try again.'}))
   }
+
+  addUrl = (newUrl) => {
+    postUrl(newUrl)
+      .then(data => this.setState({urls: [...this.state.urls, newUrl]}))
+      .catch(error => this.setState({error: 'Oh no, something went wrong. Please try again.'}))
+  } 
 
   render() {
     return (
