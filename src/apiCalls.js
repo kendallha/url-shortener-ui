@@ -3,12 +3,12 @@ export const getUrls = () => {
     .then(response => response.json())
 }
 
-export const postUrl = ({ title, urlToShorten }) => {
+export const postUrl = (newUrl) => {
   return fetch('http://localhost:3001/api/v1/urls', {
     method: 'POST',
     body: JSON.stringify({
-      long_url: urlToShorten,
-      title: title
+      long_url: newUrl.long_url,
+      title: newUrl.title
     }),
     headers: {'Content-type': 'application/json'}
   })
