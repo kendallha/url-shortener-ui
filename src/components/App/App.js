@@ -14,7 +14,9 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    this.refreshUrls()
+    getUrls()
+      .then(data => this.setState({urls: data.urls}))
+      .catch(error => this.setState({error: 'Oh no, something went wrong. Please try again.'}))
   }
 
   addUrl = (newUrl) => {
@@ -22,12 +24,6 @@ export class App extends Component {
       .then(data => this.setState({urls: [...this.state.urls, data]}))
       .catch(error => this.setState({error: 'Oh no, something went wrong. Please try again.'}))
   }
-  
-  refreshUrls = () => {
-    getUrls()
-      .then(data => this.setState({urls: data.urls}))
-      .catch(error => this.setState({error: 'Oh no, something went wrong. Please try again.'}))
-    }
 
   render() {
     return (
