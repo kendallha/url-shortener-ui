@@ -19,6 +19,7 @@ const checkForErrors = (response) => {
   if (!response.ok) {
     throw new Error(response.message)
   } else {
+    console.log(response.status)
     return response.json()
   }
 }
