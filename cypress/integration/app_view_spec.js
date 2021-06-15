@@ -18,4 +18,8 @@ describe('mainAppView', () => {
   it('Should display the title of the app', () => {
     cy.get('.app-name').should('have.text', 'URL Shortener')
   })
+
+  it('Should display all existing shortened URLs', () => {
+    cy.get('.short-url').should('have.text', 'http://localhost:3001/useshorturl/11')
+  })
 })
