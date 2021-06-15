@@ -29,7 +29,7 @@ describe('formSubmission', () => {
       id: 12,
       long_url: 'https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/',
       short_url: 'http://localhost:3001/useshorturl/12',
-      description: 'Yummy'
+      title: 'Yummy'
     },
   })
     cy.get('.submit').click()
