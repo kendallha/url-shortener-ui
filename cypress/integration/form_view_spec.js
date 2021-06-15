@@ -16,7 +16,8 @@ describe('formDisplay', () => {
   })
 
   it('Should have a form to add a URL to be shortened', () => {
-    cy.get('form').find('input')
+    cy.get('form').find('.title-input')
+    cy.get('form').find('.url-input')
     cy.get('form')
       .find('button')
       .should('have.text', 'Shorten Please!' )
